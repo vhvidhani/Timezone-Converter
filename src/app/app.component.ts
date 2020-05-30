@@ -1,4 +1,6 @@
-import { Component, OnInit ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import * as moment from 'moment';
+
 
 @Component({
   selector: 'app-root',
@@ -17,12 +19,12 @@ export class AppComponent implements OnInit {
   updateTime() {
     const now=moment();
     const humanReadable= now.format('h:mm:ss A');
-    clock=humanReadable;
+    this.clock=humanReadable;
   }
 
   ngOnInit() {
-    setInterval(updateTime,1000);
-    updateTime();
+    setInterval(this.updateTime,1000);
+    this.updateTime();
   }
   
 
